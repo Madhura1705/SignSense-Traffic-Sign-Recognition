@@ -11,6 +11,16 @@
 | 3 | **Explainability & robustness** | Grad-CAM; FGSM adversarial attack; adversarial training as a defence | M5 (visualising and fooling CNNs) |
 | 4 | **Application & integration** | Gradio web app (5 tabs), model ensemble, Colab notebook, GitHub, deployment | Integration |
 
+### Team Members
+
+| Member | Module | Role & Responsibility | Roll No / Student ID |
+|---|---|---|---|
+| **Member 1** | Data & Custom CNN | EDA, preprocessing, augmentation, VGG-style CNN from scratch | [Roll No - Placeholder] |
+| **Member 2** | Transfer Learning & Edge | ResNet-18, MobileNetV3-Small, ONNX export & CPU benchmark | [Roll No - Placeholder] |
+| **Member 3** | Explainability & Robustness | Grad-CAM visualisations, FGSM adversarial attack, Robust CNN defence | [Roll No - Placeholder] |
+| **Member 4** | Application & Deployment | Gradio web dashboard (5 tabs), Colab notebook, GitHub, deployment | [Roll No - Placeholder] |
+
+
 **Training recipe:** augmentation (rotation, shift, scale, shear, colour jitter, but no flips, since a flip turns "turn left" into "turn right"), AdamW with weight decay, OneCycle learning rate, label smoothing, gradient clipping, best-checkpoint saving (early-stopping style).
 
 **Limitations:** works on cropped signs (no detection step); German signs only; adversarial training helps against FGSM but not against every attack.
