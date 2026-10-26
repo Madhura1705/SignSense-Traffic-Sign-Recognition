@@ -1,0 +1,49 @@
+                                          precision    recall  f1-score   support
+
+                    Speed limit (20km/h)     1.0000    1.0000    1.0000        60
+                    Speed limit (30km/h)     0.9972    1.0000    0.9986       720
+                    Speed limit (50km/h)     0.9960    0.9973    0.9967       750
+                    Speed limit (60km/h)     0.9977    0.9844    0.9911       450
+                    Speed limit (70km/h)     1.0000    0.9970    0.9985       660
+                    Speed limit (80km/h)     0.9735    0.9905    0.9819       630
+             End of speed limit (80km/h)     1.0000    0.9733    0.9865       150
+                   Speed limit (100km/h)     0.9934    0.9978    0.9956       450
+                   Speed limit (120km/h)     0.9977    0.9800    0.9888       450
+                              No passing     1.0000    1.0000    1.0000       480
+       No passing for vehicles over 3.5t     1.0000    0.9985    0.9992       660
+       Right-of-way at next intersection     1.0000    0.9952    0.9976       420
+                           Priority road     1.0000    0.9971    0.9985       690
+                                   Yield     0.9959    1.0000    0.9979       720
+                                    Stop     1.0000    1.0000    1.0000       270
+                             No vehicles     0.9952    0.9952    0.9952       210
+           Vehicles over 3.5t prohibited     1.0000    1.0000    1.0000       150
+                                No entry     1.0000    1.0000    1.0000       360
+                         General caution     1.0000    0.9923    0.9961       390
+             Dangerous curve to the left     1.0000    1.0000    1.0000        60
+            Dangerous curve to the right     0.9890    1.0000    0.9945        90
+                            Double curve     1.0000    1.0000    1.0000        90
+                              Bumpy road     1.0000    0.9417    0.9700       120
+                           Slippery road     1.0000    0.9867    0.9933       150
+               Road narrows on the right     1.0000    0.9889    0.9944        90
+                               Road work     0.9816    0.9979    0.9897       480
+                         Traffic signals     0.9890    1.0000    0.9945       180
+                             Pedestrians     1.0000    1.0000    1.0000        60
+                       Children crossing     1.0000    1.0000    1.0000       150
+                       Bicycles crossing     1.0000    1.0000    1.0000        90
+                      Beware of ice/snow     0.9740    1.0000    0.9868       150
+                   Wild animals crossing     0.9926    1.0000    0.9963       270
+     End of all speed and passing limits     1.0000    1.0000    1.0000        60
+                        Turn right ahead     0.9953    1.0000    0.9976       210
+                         Turn left ahead     1.0000    1.0000    1.0000       120
+                              Ahead only     1.0000    1.0000    1.0000       390
+                    Go straight or right     1.0000    1.0000    1.0000       120
+                     Go straight or left     1.0000    1.0000    1.0000        60
+                              Keep right     0.9986    1.0000    0.9993       690
+                               Keep left     1.0000    0.9889    0.9944        90
+                    Roundabout mandatory     1.0000    1.0000    1.0000        90
+                       End of no passing     1.0000    1.0000    1.0000        60
+End of no passing for vehicles over 3.5t     0.9890    1.0000    0.9945        90
+
+                                accuracy                         0.9959     12630
+                               macro avg     0.9966    0.9954    0.9960     12630
+                            weighted avg     0.9959    0.9959    0.9959     12630

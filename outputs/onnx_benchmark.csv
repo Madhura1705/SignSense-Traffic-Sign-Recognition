@@ -1,0 +1,5 @@
+model,onnx_size_MB,torch_cpu_ms,onnxruntime_cpu_ms,speedup,max_abs_diff,test_accuracy
+cnn,3.30,6.997,2.928,2.39,1.19e-06,0.9959
+cnn_robust,3.30,7.171,2.788,2.57,1.31e-06,0.9969
+mobilenet,6.26,5.872,0.740,7.94,3.10e-06,0.9505
+resnet18,44.79,13.622,5.208,2.62,9.54e-07,0.9899
