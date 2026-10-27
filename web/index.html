@@ -4,8 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SignSense: Traffic Sign Recognition</title>
+
+  <!-- Design System & Stylesheets -->
+  <link rel="stylesheet" href="/static/css/tokens.css">
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/components.css">
+  <link rel="stylesheet" href="/static/css/pages.css">
+
+  <!-- Offline Local Chart.js Vendor -->
+  <script src="/static/vendor/chart.umd.js"></script>
 </head>
 <body>
-  <div id="app">SignSense v2 Web UI</div>
+  <div class="app-container">
+    <!-- Road-Styled Sticky Navbar -->
+    <header class="navbar" role="banner">
+      <div class="navbar-inner">
+        <!-- Logo -->
+        <a href="#/" class="navbar-brand" aria-label="SignSense Home">
+          <span class="brand-icon" aria-hidden="true">SS</span>
+          <span>SignSense</span>
+        </a>
+
+        <!-- Desktop Navigation Links with Sliding Lane Marker -->
+        <nav class="navbar-nav" role="navigation" aria-label="Main Navigation">
+          <a href="#/" class="nav-link" id="nav-home">Home</a>
+          <a href="#/recognise" class="nav-link" id="nav-recognise">Recognise</a>
+          <a href="#/compare" class="nav-link" id="nav-compare">Compare</a>
+          <a href="#/attack" class="nav-link" id="nav-attack">Attack Lab</a>
+          <a href="#/report" class="nav-link" id="nav-report">Report</a>
+          <div class="lane-marker" aria-hidden="true"></div>
+        </nav>
+
+        <!-- Right Side: Health Status Pill & Mobile Toggle -->
+        <div class="flex-row">
+          <div class="status-pill" id="status-pill" role="status" aria-live="polite">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="status-text">Checking backend...</span>
+          </div>
+
+          <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-drawer" id="mobile-drawer" role="navigation" aria-label="Mobile Navigation">
+        <a href="#/" class="nav-link">Home</a>
+        <a href="#/recognise" class="nav-link">Recognise</a>
+        <a href="#/compare" class="nav-link">Compare</a>
+        <a href="#/attack" class="nav-link">Attack Lab</a>
+        <a href="#/report" class="nav-link">Report</a>
+      </div>
+    </header>
+
+    <!-- Main Dynamic Content Shell -->
+    <main class="content-area" id="content-area" role="main" tabindex="-1">
+      <!-- Pages rendered dynamically here via main.js hash router -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer-inner">
+        <div>
+          <strong>SignSense</strong> &mdash; PECE-06 Deep Learning, Sem VII, Project 13
+        </div>
+        <div>
+          <a href="https://github.com/Madhura1705/SignSense-Traffic-Sign-Recognition" target="_blank" rel="noopener noreferrer">
+            GitHub Repository
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Main ES Module Application -->
+  <script type="module" src="/static/js/main.js"></script>
 </body>
 </html>

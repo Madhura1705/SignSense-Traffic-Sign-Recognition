@@ -1,0 +1,63 @@
+/* ==========================================================================
+   PAGE SPECIFIC STYLING
+   ========================================================================== */
+
+/* Page Header & Intro */
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: var(--text-2xl);
+  font-family: var(--font-heading);
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.page-description {
+  font-size: var(--text-base);
+  color: var(--muted);
+  max-width: var(--max-text-ch);
+}
+
+/* Home Page: Hero Live Road */
+.hero-road-container {
+  background-color: var(--asphalt);
+  border-radius: var(--radius-panel);
+  border-bottom: 3px dashed var(--lane);
+  padding: 32px;
+  color: #FFFFFF;
+  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-road-container {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+}
+
+.hero-road-title {
+  color: #FFFFFF;
+  font-size: var(--text-2xl);
+  font-family: var(--font-heading);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.hero-road-desc {
+  color: #CBD5E1;
+  font-size: var(--text-base);
+  margin-bottom: 20px;
+}
+
+/* Placeholder Page Cards */
+.placeholder-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

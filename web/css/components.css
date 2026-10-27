@@ -1,0 +1,552 @@
+/* ==========================================================================
+   NAVBAR & ROAD STYLING
+   ========================================================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--asphalt);
+  color: #FFFFFF;
+  border-bottom: 2px dashed var(--lane);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.navbar-brand:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.brand-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--sign-blue);
+  border: 2px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  height: 64px;
+}
+
+.nav-link {
+  color: #CBD5E1;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: color var(--motion-duration) var(--motion-ease);
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-link:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Sliding Lane Marker under Active Link */
+.lane-marker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: var(--lane);
+  border-radius: 2px 2px 0 0;
+  transition: transform var(--motion-duration) var(--motion-ease), width var(--motion-duration) var(--motion-ease);
+  pointer-events: none;
+}
+
+/* Status Pill */
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-round);
+  background-color: var(--asphalt-light);
+  border: 1px solid var(--asphalt-border);
+  font-size: 13px;
+  font-weight: 500;
+  color: #E2E8F0;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--go-green);
+  transition: background-color var(--motion-duration) var(--motion-ease);
+}
+
+.status-pill.offline .status-dot {
+  background-color: var(--stop-red);
+}
+
+/* Mobile Hamburger & Drawer */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.mobile-drawer {
+  display: none;
+  background-color: var(--asphalt);
+  border-bottom: 2px dashed var(--lane);
+  padding: 16px 20px;
+}
+
+.mobile-drawer.open {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobile-drawer .nav-link {
+  height: auto;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  margin-top: auto;
+  background-color: var(--asphalt);
+  color: #94A3B8;
+  border-top: 1px solid var(--asphalt-border);
+  padding: 24px 20px;
+  font-size: 14px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer a {
+  color: #CBD5E1;
+}
+
+.footer a:hover {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   PANELS & CONTAINERS
+   ========================================================================== */
+.panel {
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: 24px;
+}
+
+.panel-header {
+  margin-bottom: 16px;
+}
+
+.panel-title {
+  font-size: var(--text-xl);
+  font-family: var(--font-heading);
+  color: var(--ink);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--motion-duration) var(--motion-ease);
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--sign-blue);
+  color: #FFFFFF;
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background-color: var(--sign-blue-hover);
+}
+
+.btn-secondary {
+  background-color: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--paper);
+}
+
+.btn-danger {
+  background-color: var(--stop-red);
+  color: #FFFFFF;
+  border: 1px solid transparent;
+}
+
+.btn-danger:hover {
+  opacity: 0.9;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   SEGMENTED CONTROL (Radio Group)
+   ========================================================================== */
+.segmented-control {
+  display: inline-flex;
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+  user-select: none;
+}
+
+.segment-item {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--motion-duration) var(--motion-ease);
+  white-space: nowrap;
+}
+
+.segment-item:hover {
+  color: var(--ink);
+}
+
+.segment-item[aria-checked="true"],
+.segment-item.active {
+  background-color: var(--panel);
+  color: var(--sign-blue);
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   IMAGE INPUT & DRAG-AND-DROP
+   ========================================================================== */
+.image-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-panel);
+  padding: 24px;
+  background-color: var(--panel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  min-height: 220px;
+  position: relative;
+  transition: border-color var(--motion-duration) var(--motion-ease), background-color var(--motion-duration) var(--motion-ease);
+}
+
+.dropzone:hover,
+.dropzone.dragover {
+  border-color: var(--sign-blue);
+  background-color: var(--sign-blue-light);
+}
+
+.dropzone-preview {
+  max-width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.dropzone-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.sample-strip-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sample-strip-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.sample-strip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.sample-thumb {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  flex-shrink: 0;
+  object-fit: cover;
+  background: var(--paper);
+  transition: transform var(--motion-duration) var(--motion-ease), border-color var(--motion-duration) var(--motion-ease);
+}
+
+.sample-thumb:hover {
+  transform: scale(1.05);
+  border-color: var(--sign-blue);
+}
+
+/* ==========================================================================
+   CONFIDENCE BAR & TOP 5 LIST
+   ========================================================================== */
+.confidence-bar-wrap {
+  width: 100%;
+  height: 8px;
+  background-color: var(--paper);
+  border-radius: var(--radius-round);
+  overflow: hidden;
+  position: relative;
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-round);
+  transition: width var(--motion-duration) var(--motion-ease);
+}
+
+.confidence-bar-fill.high { background-color: var(--go-green); }
+.confidence-bar-fill.medium { background-color: var(--lane); }
+.confidence-bar-fill.low { background-color: var(--stop-red); }
+
+.top5-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.top5-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.top5-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.top5-name {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.top5-prob {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   SIGN BADGES (Circle, Triangle, Octagon)
+   ========================================================================== */
+.sign-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.sign-badge.circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--sign-blue);
+  border: 2px solid #FFFFFF;
+}
+
+.sign-badge.triangle {
+  width: 36px;
+  height: 36px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: var(--lane);
+  color: var(--ink);
+}
+
+.sign-badge.octagon {
+  width: 36px;
+  height: 36px;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  background-color: var(--stop-red);
+}
+
+/* ==========================================================================
+   LIGHTBOX
+   ========================================================================== */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 15, 20, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lightbox);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   STATUS BANNERS, SPINNER & EMPTY STATE
+   ========================================================================== */
+.error-banner {
+  background-color: var(--stop-red-bg);
+  border: 1px solid var(--stop-red);
+  color: var(--stop-red);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--muted);
+  gap: 12px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border);
+  border-top-color: var(--sign-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-nav { display: none; }
+  .hamburger-btn { display: block; }
+  .status-pill { padding: 4px 10px; font-size: 12px; }
+  .content-area { padding: 16px 12px 32px; }
+}

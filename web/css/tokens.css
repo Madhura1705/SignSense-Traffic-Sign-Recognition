@@ -1,0 +1,95 @@
+/* Fonts: Barlow and Barlow Condensed (Offline / Local) */
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../vendor/barlow-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../vendor/barlow-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../vendor/barlow-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../vendor/barlow-condensed-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../vendor/barlow-condensed-700.woff2') format('woff2');
+}
+
+:root {
+  /* Semantic Palette (European Road Signage Identity) */
+  --asphalt: #22272E;
+  --asphalt-light: #2D333B;
+  --asphalt-border: #444C56;
+  --lane: #F2B705;
+  --sign-blue: #0A4DA2;
+  --sign-blue-hover: #083D82;
+  --sign-blue-light: #E8F0FE;
+  --stop-red: #C8102E;
+  --stop-red-bg: #FDEDEE;
+  --go-green: #1E8E3E;
+  --go-green-bg: #E6F4EA;
+
+  /* Surfaces & Neutrals */
+  --paper: #EEF1F4;
+  --panel: #FFFFFF;
+  --ink: #1A1D21;
+  --muted: #5B6470;
+  --border: #D5DBE2;
+
+  /* Typography */
+  --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Barlow Condensed', sans-serif;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+  --text-2xl: 40px;
+  --text-hero: 64px;
+  --line-height-body: 1.55;
+  --line-height-heading: 1.15;
+  --max-text-ch: 70ch;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-panel: 10px;
+  --radius-round: 9999px;
+
+  /* Transitions & Animation */
+  --motion-duration: 150ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Shadows (Only for floating/overlay layers) */
+  --shadow-floating: 0 6px 20px rgba(0, 0, 0, 0.14);
+  --shadow-lightbox: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-duration: 0ms;
+  }
+}
