@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Member 1",
+    "roll": "",
+    "module": "Data & custom CNN",
+    "summary": "EDA, preprocessing and augmentation; VGG-style CNN built from scratch with BatchNorm, Dropout and He init",
+    "syllabus": "M2, M3, M4, M5"
+  },
+  {
+    "name": "Member 2",
+    "roll": "",
+    "module": "Transfer learning & edge deployment",
+    "summary": "ResNet-18 vs MobileNetV3-Small; params, FLOPs and latency trade-off; ONNX export and ONNX Runtime benchmark",
+    "syllabus": "M4, M5 (LO 4.4, 5.3, 5.4)"
+  },
+  {
+    "name": "Member 3",
+    "roll": "",
+    "module": "Explainability & robustness",
+    "summary": "Grad-CAM; FGSM adversarial attack; adversarial training as a defence",
+    "syllabus": "M5 (visualising and fooling CNNs)"
+  },
+  {
+    "name": "Member 4",
+    "roll": "",
+    "module": "Application & integration",
+    "summary": "Web app, model ensemble, Colab notebook, GitHub, deployment",
+    "syllabus": "Integration"
+  }
+]

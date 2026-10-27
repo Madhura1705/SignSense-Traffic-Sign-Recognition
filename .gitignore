@@ -7,6 +7,7 @@ venv/
 .DS_Store
 *.onnx
 ANTIGRAVITY_PROMPTS.md
+ANTIGRAVITY_WEB_UI.md
 *.zip
 signsense_results.zip
 
