@@ -310,8 +310,10 @@ async def sweep_endpoint(image: UploadFile = File(...)):
 def get_report():
     metrics = read_json_file(os.path.join("outputs", "metrics.json"))
     onnx = read_csv_file(os.path.join("outputs", "onnx_benchmark.csv"))
+    comparison = read_csv_file(os.path.join("outputs", "comparison.csv"))
 
     worst_classes = {}
+    class_reports = {}
     for key in ["cnn", "resnet18", "mobilenet", "cnn_robust"]:
         report_path = os.path.join(ROOT, "outputs", f"{key}_report.txt")
         if os.path.exists(report_path):
@@ -330,6 +332,7 @@ def get_report():
                             "f1": float(f1),
                             "support": int(supp),
                         })
+            class_reports[key] = list(classes)
             classes.sort(key=lambda item: item["f1"])
             worst_classes[key] = classes[:5]
 
@@ -358,7 +361,9 @@ def get_report():
     return {
         "metrics": metrics,
         "onnx": onnx,
+        "comparison": comparison,
         "worst_classes": worst_classes,
+        "class_reports": class_reports,
         "plots": plots,
     }
 

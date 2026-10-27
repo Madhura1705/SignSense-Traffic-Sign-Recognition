@@ -757,3 +757,120 @@
   background-color: rgba(30, 142, 62, 0.09);
   font-weight: 600;
 }
+
+/* ==========================================================================
+   REPORT PAGE STYLES
+   ========================================================================== */
+.report-subnav {
+  position: sticky;
+  top: 66px;
+  z-index: 90;
+  background-color: var(--paper);
+  padding: 10px 0 16px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+}
+
+.report-tab-btn {
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--motion-duration) var(--motion-ease);
+}
+
+.report-tab-btn:hover {
+  color: var(--ink);
+  border-color: var(--sign-blue);
+}
+
+.report-tab-btn.active {
+  background-color: var(--sign-blue);
+  color: #FFFFFF;
+  border-color: var(--sign-blue);
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 14px;
+}
+
+.report-table th, .report-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.report-table th {
+  background-color: var(--paper);
+  cursor: pointer;
+  user-select: none;
+  font-weight: 600;
+}
+
+.report-table th:hover {
+  background-color: var(--border);
+}
+
+.report-table td.best-cell {
+  background-color: rgba(30, 142, 62, 0.12);
+  font-weight: 700;
+  color: var(--go-green);
+}
+
+.report-img-viewer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: 24px;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.report-img {
+  max-width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.viewer-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.search-input {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  width: 100%;
+  max-width: 320px;
+  background-color: var(--panel);
+}
+
+.worst-class-row {
+  background-color: #FEF3C7;
+  font-weight: 600;
+}
