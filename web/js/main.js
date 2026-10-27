@@ -171,6 +171,9 @@ async function updateHealthStatus() {
   }
 }
 
+// Expose on window for runtime testing & health triggers
+window.updateHealthStatus = updateHealthStatus;
+
 // Mobile Hamburger Toggle
 if (hamburgerBtn && mobileDrawer) {
   hamburgerBtn.addEventListener('click', () => {

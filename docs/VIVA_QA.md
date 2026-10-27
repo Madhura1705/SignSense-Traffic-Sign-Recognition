@@ -372,3 +372,54 @@ OOD detection techniques address this limitation:
 1. **Maximum Softmax Probability (MSP) & Temperature Scaling:** Apply temperature $T > 1$ to smooth output probabilities and threshold the maximum score: $S(x) = \max_k \frac{e^{z_k / T}}{\sum_j e^{z_j / T}}$.
 2. **Energy-Based OOD Detection:** Compute the free energy score $E(x; f) = -T \log \sum_{k=1}^K e^{z_k / T}$. In-distribution samples exhibit significantly lower free energy than foreign signs.
 3. **Mahalanobis Distance in Feature Space:** Fit class-conditional Gaussian distributions to the final convolutional feature representations. If the minimum Mahalanobis distance from a new sign crop exceeds a threshold, flag it as an unknown sign and alert the human driver.
+
+---
+
+## Section 5: Full-Stack Architecture, REST APIs & Web Engineering (Member 4)
+
+### Q41. Why did you choose FastAPI and vanilla ES Modules over frontend frameworks like React, Next.js, or Gradio?
+**Answer:**  
+1. **Zero-Build Architecture:** Modern frontend frameworks (React, Vue, Angular) necessitate Node.js, npm, package locks, and complex bundlers (Webpack/Vite). Vanilla JavaScript ES modules run natively in every modern browser with zero build steps, zero compilation delay, and zero risk of npm dependency obsolescence.
+2. **Speed & Lightweight Footprint:** Gradio abstracts UI components but injects heavy polling layers, WebSocket overhead, and rigid layouts. By pairing FastAPI with plain HTML5/CSS3/ES6, we achieved a total static asset footprint under 1 MB, sub-millisecond DOM render times, and full design freedom (e.g., custom road-signage color tokens and layered Grad-CAM opacity sliders).
+3. **High-Concurrency Asynchronous Backend:** FastAPI built on Starlette and Uvicorn provides high-throughput asynchronous request routing, automated Pydantic schema validation, and OpenAPI documentation, making it significantly more scalable than Flask or Gradio for production serving.
+
+---
+
+### Q42. Explain the REST API design of SignSense. What endpoints exist and how are responsibilities partitioned?
+**Answer:**  
+The SignSense backend is structured into clean, decoupled REST endpoints:
+- **`GET /api/health`:** Heartbeat probe reporting server operational status, pre-loaded models in memory, and active PyTorch device (`cpu` or `cuda`).
+- **`GET /api/models`:** Serves static metadata, parameter counts, FLOPs, and test accuracy metrics for all 4 trained architectures.
+- **`GET /api/samples`:** Returns catalogued GTSRB evaluation samples and uncropped real-world test photos.
+- **`GET /api/team`:** Serves academic team attribution, module ownership, and syllabus mappings from `team.json`.
+- **`POST /api/predict`:** Accepts multipart image data and target model key; returns predicted class ID, human-readable name, softmax confidence, top-5 distribution, and base64 Grad-CAM overlay/heatmap.
+- **`POST /api/compare`:** Evaluates an uploaded image across all 4 architectures in parallel, returning individual latencies and the ensemble consensus majority vote.
+- **`POST /api/attack`:** Generates live single-step FGSM adversarial perturbations at specified $\epsilon$, returning the amplified noise map, perturbed image, and cross-model transferability matrix.
+- **`POST /api/attack/sweep`:** Evaluates vulnerability across an $\epsilon \in [0, 0.10]$ sweep, streaming data points for client-side Chart.js line plots.
+- **`GET /api/report`:** Aggregates multi-model training histories, ONNX benchmarks, and searchable 43-class classification reports.
+
+---
+
+### Q43. Why does the API accept images via multipart form upload but return visualizations as base64 data URIs?
+**Answer:**  
+- **Multipart Form Upload (Client to Server):** Raw binary streaming avoids the ~33% byte inflation associated with base64 string encoding. The uploaded file stream is loaded directly into an in-memory `io.BytesIO` buffer and converted into a PIL image without touching the server's disk, minimizing I/O overhead and maximizing throughput.
+- **Base64 Data URIs (Server to Client):** The server generates processed visual artifacts—such as the resized $256 \times 256$ input image, the Grad-CAM overlay, the RGBA transparent heatmap, and the amplified adversarial noise. Packaging these as `data:image/png;base64,...` strings within the JSON response allows the client browser to render them instantaneously. This avoids subsequent round-trip GET requests to fetch temporary images, eliminates server-side temporary file management, and enables real-time client-side opacity blending using layered CSS.
+
+---
+
+### Q44. Why does model inference run on the server using PyTorch rather than client-side in the browser using ONNX Web or TensorFlow.js?
+**Answer:**  
+1. **Autograd Requirement for Grad-CAM:** Computing Grad-CAM requires calculating the backward gradient of the predicted class score with respect to feature maps of the final convolutional layer:
+   $$\alpha_k^c = \frac{1}{Z} \sum_{i} \sum_{j} \frac{\partial y^c}{\partial A_{i,j}^k}$$
+   Client-side browser engines (ONNX Runtime Web, TF.js) are strictly forward-inference engines optimized for execution speed; they discard intermediate computation graphs and do not support backward autograd passes.
+2. **Adversarial Gradient Computation:** Similarly, the Fast Gradient Sign Method (FGSM) requires backpropagating cross-entropy loss back to the raw input tensor: $\nabla_x J(\theta, x, y)$. Generating live adversarial attacks requires a full autograd framework (PyTorch) on the server.
+3. **Bandwidth and Client Hardware Constraints:** Downloading all 4 deep models (~56 MB total) to client smartphones or laptops incurs high bandwidth latency and consumes substantial device RAM/WebGL buffers. Centralized server-side inference guarantees sub-5 ms execution on standard host CPUs regardless of client device specifications.
+
+---
+
+### Q45. How does the single-page application (SPA) handle client-side routing and webcam stream throttling?
+**Answer:**  
+- **Client-Side Hash Routing (`#/`, `#/recognise`, `#/compare`, `#/attack`, `#/report`):**
+  The application utilizes a lightweight hash-based router listening to the `window.hashchange` event. Hash routing ensures that deep-linking and browser forward/back buttons function reliably across any static file server without requiring server-side URL rewrite rules or catch-all fallback configurations. When transitioning between routes, the router invokes an optional `destroy()` lifecycle hook on the active page module to abort pending HTTP requests, clear timers, stop camera streams, and cleanly destroy Chart.js canvas instances.
+- **Live-Camera Stream Throttling (500 ms):**
+  Real-time browser video streams generate 30–60 frames per second. Submitting every frame to the server would overwhelm network buffers and saturate the host CPU thread pool. In `recognise.js`, a throttling timer captures and posts a video frame every **500 milliseconds (2 Hz)**. Since inference and Grad-CAM require $<85\text{ ms}$ on CPU, this 500 ms cadence provides ample headroom, keeping CPU utilization low while delivering a responsive, real-time perception experience.
