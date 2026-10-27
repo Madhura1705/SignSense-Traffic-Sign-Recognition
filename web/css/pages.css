@@ -506,3 +506,254 @@
   font-size: 13px;
   font-weight: 600;
 }
+
+/* ==========================================================================
+   COMPARE PAGE STYLES
+   ========================================================================== */
+.compare-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+@media (max-width: 960px) {
+  .compare-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ensemble-banner {
+  padding: 16px 20px;
+  border-radius: var(--radius-panel);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ensemble-banner.unanimous {
+  background-color: var(--go-green-bg);
+  border: 1px solid var(--go-green);
+  color: var(--go-green);
+}
+
+.ensemble-banner.split {
+  background-color: #FEF3C7;
+  border: 1px solid var(--lane);
+  color: #B45309;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  .compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.compare-card {
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  transition: border-color var(--motion-duration) var(--motion-ease);
+}
+
+.compare-card.winner {
+  border: 2px solid var(--sign-blue);
+  box-shadow: 0 0 0 1px var(--sign-blue);
+}
+
+.compare-card-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.compare-card-spec {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.3;
+}
+
+.compare-cam-img {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background-color: #000;
+  border: 1px solid var(--border);
+}
+
+.speed-size-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin-top: 14px;
+}
+
+.speed-size-table th, .speed-size-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.speed-size-table th {
+  background-color: var(--paper);
+  font-weight: 600;
+}
+
+.speed-size-table tr.highlight-mobilenet {
+  background-color: rgba(10, 77, 162, 0.06);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   ATTACK LAB STYLES
+   ========================================================================== */
+.formula-box {
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--stop-red);
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 14px 0 24px;
+  display: inline-block;
+}
+
+.presets-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.presets-strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.preset-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: var(--radius-sm);
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  transition: all var(--motion-duration) var(--motion-ease);
+}
+
+.preset-btn:hover {
+  background-color: var(--stop-red-bg);
+  border-color: var(--stop-red);
+  color: var(--stop-red);
+}
+
+.attack-triplet {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 800px) {
+  .attack-triplet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.attack-img-card {
+  background-color: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.attack-img-card h4 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.attack-img {
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  background-color: #000;
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.verdict-banner {
+  padding: 16px 20px;
+  border-radius: var(--radius-panel);
+  font-size: 20px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.verdict-banner.fooled {
+  background-color: var(--stop-red-bg);
+  border: 2px solid var(--stop-red);
+  color: var(--stop-red);
+}
+
+.verdict-banner.resisted {
+  background-color: var(--go-green-bg);
+  border: 2px solid var(--go-green);
+  color: var(--go-green);
+}
+
+.transfer-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.transfer-table th, .transfer-table td {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.transfer-table th {
+  background-color: var(--paper);
+  font-weight: 600;
+}
+
+.transfer-table tr.highlight-robust {
+  background-color: rgba(30, 142, 62, 0.09);
+  font-weight: 600;
+}

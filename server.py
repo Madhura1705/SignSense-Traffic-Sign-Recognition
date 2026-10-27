@@ -265,6 +265,7 @@ async def attack_endpoint(
             "top5": adv_pred["top5"],
         },
         "fooled": bool(adv_id != clean_id),
+        "input_b64": inference.to_input_b64(x),
         "adv_b64": inference.to_adv_b64(xa),
         "noise_b64": inference.to_noise_b64(xa, x),
         "transfer": transfer,
